@@ -1,11 +1,12 @@
 import React from 'react';
 import { Text, View } from 'react-native';
-import styles from './styles';
+import styles from '../../styles';
+import aboutStyles from './About.styles';
 
-export default function App() {
+export default function About() {
     return (
         <View style={styles.container}>
-            <Text>RepoViewer</Text>
+            <Text>About Screen</Text>
         </View>
     );
 }
