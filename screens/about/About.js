@@ -5,7 +5,7 @@ import aboutStyles from './About.styles';
 
 export default function About() {
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, aboutStyles.container]}>
             <Text>About Screen</Text>
         </View>
     );
