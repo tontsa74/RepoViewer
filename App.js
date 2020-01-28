@@ -1,11 +1,8 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import styles from './styles';
+import AppNavigator from './AppNavigator';
 
 export default function App() {
     return (
-        <View style={styles.container}>
-            <Text>RepoViewer</Text>
-        </View>
+        <AppNavigator/>
     );
 }
