@@ -9,7 +9,7 @@ const middleware = applyMiddleware(thunk);
 const persistConfig = {
     key: 'root',
     storage: AsyncStorage,
-    whitelist: ['search'],
+    whitelist: ['search', 'repos'],
 };
 
 const persistedReducer = persistReducer(persistConfig, allReducers);
