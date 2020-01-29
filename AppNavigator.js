@@ -17,7 +17,7 @@ const stackNavigatorConfig = {
         fontWeight: 'bold',
         width: 300,
     },
-}
+};
 
 const SearchStackNavigator = createStackNavigator(
     {

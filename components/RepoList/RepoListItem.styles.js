@@ -2,8 +2,9 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        alignItems: 'stretch',
-        justifyContent: 'flex-start',
+        backgroundColor: '#fff',
+        padding: 10,
+        borderWidth: 1,
     },
 });
 
