@@ -6,7 +6,7 @@ import UsernameInput from '../../components/UsernameInput/UsernameInput';
 import RepoList from '../../components/RepoList/RepoList';
 
 Home.navigationOptions = {
-    title: 'GitHub Finder',
+    title: 'Repo Viewer',
 };
 
 export default function Home(props) {

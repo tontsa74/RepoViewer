@@ -4,6 +4,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         alignItems: 'center',
+        backgroundColor: '#fff',
         borderWidth: 1,
     },
     usernameInput: {
@@ -14,6 +15,9 @@ const styles = StyleSheet.create({
     searchButton: {
         marginRight: 10,
     },
+    loading: {
+        paddingHorizontal: 5,
+    }
 });
 
 export default styles;
