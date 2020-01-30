@@ -2,8 +2,12 @@ import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#fff',
-        borderWidth: 1,
+        flex: 1,
+    },
+    listHeader: {
+        fontWeight: 'bold',
+        fontSize: 20,
+        padding: 10,
     },
 });
 

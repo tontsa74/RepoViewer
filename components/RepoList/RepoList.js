@@ -4,7 +4,12 @@ import RepoListStyles from './RepoList.styles';
 import { useSelector, useDispatch } from 'react-redux';
 import RepoListItem from './RepoListItem';
 import { fetchBranches } from '../../store/actions/branchesActions';
-import { searchBranch } from '../../store/actions/searchActions';
+import {
+    searchBranch,
+    searchCommitsUrl,
+} from '../../store/actions/searchActions';
+import { fetchCommits } from '../../store/actions/commitsActions';
+import { parseCommitsurl } from '../../utils/parseCommitsUrl';
 
 export default function RepoList(props) {
     const repos = useSelector(state => state.repos);
@@ -12,10 +17,12 @@ export default function RepoList(props) {
     const dispatch = useDispatch();
 
     const repoClicked = repo => {
-        console.log('repoClicked', repo.full_name);
         dispatch(fetchBranches(repo.full_name));
-        dispatch(searchBranch(repo.default_branch))
-        props.navigation.navigate('Commit');
+        dispatch(searchCommitsUrl(repo.commits_url));
+        dispatch(searchBranch(repo.default_branch));
+        const url = parseCommitsurl(repo.commits_url, repo.default_branch, 1);
+        dispatch(fetchCommits(url));
+        props.navigation.navigate('Commit', {name: repo.name});
     };
 
     return (
