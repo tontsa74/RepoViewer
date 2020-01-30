@@ -1,14 +1,20 @@
 import React from 'react';
 import { View, FlatList, Text } from 'react-native';
 import RepoListStyles from './RepoList.styles';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import RepoListItem from './RepoListItem';
+import { fetchBranches } from '../../store/actions/branchesActions';
+import { searchBranch } from '../../store/actions/searchActions';
 
 export default function RepoList(props) {
     const repos = useSelector(state => state.repos);
 
+    const dispatch = useDispatch();
+
     const repoClicked = repo => {
-        console.log('repoClicked', repo.name);
+        console.log('repoClicked', repo.full_name);
+        dispatch(fetchBranches(repo.full_name));
+        dispatch(searchBranch(repo.default_branch))
         props.navigation.navigate('Commit');
     };
 
