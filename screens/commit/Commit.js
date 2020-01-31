@@ -12,7 +12,7 @@ Commit.navigationOptions = ({ navigation }) => {
 export default function Commit() {
     return (
         <View style={[styles.container, commitStyles.container]}>
-            <Text>Branch</Text>
+            <Text style={commitStyles.textTitle}>Select branch</Text>
             <BranchPicker />
             <CommitList />
         </View>

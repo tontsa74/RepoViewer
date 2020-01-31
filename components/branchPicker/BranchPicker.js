@@ -14,7 +14,13 @@ export default function BranchPicker() {
 
     const items = () => {
         return branches.branches.map((branch, index) => {
-            return <Picker.Item label={branch.name} value={branch.name} key={index} />;
+            return (
+                <Picker.Item
+                    label={branch.name}
+                    value={branch.name}
+                    key={index}
+                />
+            );
         });
     };
 
@@ -26,7 +32,9 @@ export default function BranchPicker() {
 
     return (
         <View style={branchPickerStyles.container}>
-            <Picker selectedValue={search.branch} onValueChange={value => onItemClick(value)}>
+            <Picker
+                selectedValue={search.branch}
+                onValueChange={value => onItemClick(value)}>
                 {items()}
             </Picker>
         </View>

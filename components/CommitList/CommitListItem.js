@@ -19,7 +19,9 @@ export default function CommitListItem(props) {
             <Image style={CommitListItemStyles.avatar} source={avatar} />
             <ScrollView>
                 <Text style={CommitListItemStyles.itemTexts}>{name}</Text>
-                <Text style={CommitListItemStyles.itemTexts}>{date.toLocaleString()}</Text>
+                <Text style={CommitListItemStyles.itemTexts}>
+                    {date.toLocaleString()}
+                </Text>
                 <Text style={CommitListItemStyles.itemTexts}>{message}</Text>
             </ScrollView>
         </TouchableOpacity>
