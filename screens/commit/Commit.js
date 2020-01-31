@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View } from 'react-native';
 import styles from '../../styles';
 import commitStyles from './Commit.styles';
-import BranchPicker from '../../components/branchPicker.js/BranchPicker';
+import BranchPicker from '../../components/branchPicker/BranchPicker';
 import CommitList from '../../components/CommitList/CommitList';
 
 Commit.navigationOptions = ({ navigation }) => {

@@ -31,10 +31,13 @@ export const fetchRepos = username => {
             const url = `https://api.github.com/users/${username}/repos?sort=updated`;
             const reposPromise = await fetch(url);
             const reposJson = await reposPromise.json();
+            if (reposJson.message) {
+                dispatch(reposRejected(reposJson.message));
+            }
             dispatch(reposFulfilled(reposJson));
         } catch (error) {
             console.log('Fetch Repositories Error-----------------', error);
-            dispatch(reposRejected(error));
+            dispatch(reposRejected(error.message));
         }
     };
 };

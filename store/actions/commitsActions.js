@@ -30,10 +30,13 @@ export const fetchCommits = url => {
             dispatch(requestCommits());
             const commitsPromise = await fetch(url);
             const commitsJson = await commitsPromise.json();
+            if (commitsJson.message) {
+                dispatch(reposRejected(commitsJson.message));
+            }
             dispatch(commitsFulfilled(commitsJson));
         } catch (error) {
             console.log('Fetch Commits Error-----------------', error);
-            dispatch(commitsRejected(error));
+            dispatch(commitsRejected(error.message));
         }
     };
 };
