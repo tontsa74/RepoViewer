@@ -6,13 +6,25 @@ import { searchBranch } from '../../store/actions/searchActions';
 import { fetchCommits } from '../../store/actions/commitsActions';
 import { parseCommitsurl } from '../../utils/parseCommitsUrl';
 
+/**
+ * Branch Picker Component
+ *
+ * Provides picker component to select branch
+ * Dispatches selected branch including commits to redux store
+ *
+ */
 export default function BranchPicker() {
     const search = useSelector(state => state.search);
     const branches = useSelector(state => state.branches);
 
     const dispatch = useDispatch();
 
-    const items = () => {
+    /**
+     *  Map branches to picker items
+     *
+     * @returns branch picker items
+     */
+    const branchItems = () => {
         return branches.branches.map((branch, index) => {
             return (
                 <Picker.Item
@@ -24,9 +36,14 @@ export default function BranchPicker() {
         });
     };
 
-    const onItemClick = value => {
-        dispatch(searchBranch(value));
-        let url = parseCommitsurl(search.commitsUrl, value, 1);
+    /**
+     * Dispatch selected branch including commits
+     *
+     * @param {*} branch branch name
+     */
+    const branchClicked = branch => {
+        dispatch(searchBranch(branch));
+        let url = parseCommitsurl(search.commitsUrl, branch, 1);
         dispatch(fetchCommits(url));
     };
 
@@ -34,8 +51,8 @@ export default function BranchPicker() {
         <View style={branchPickerStyles.container}>
             <Picker
                 selectedValue={search.branch}
-                onValueChange={value => onItemClick(value)}>
-                {items()}
+                onValueChange={branch => branchClicked(branch)}>
+                {branchItems()}
             </Picker>
         </View>
     );

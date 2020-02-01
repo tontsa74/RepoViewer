@@ -9,6 +9,13 @@ Home.navigationOptions = {
     title: 'Repo Viewer',
 };
 
+/**
+ * Home screen component
+ *
+ * Contains username text input and repository list
+ *
+ * @param {*} props navigation
+ */
 export default function Home(props) {
     return (
         <View style={[styles.container, homeStyles.container]}>

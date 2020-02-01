@@ -4,12 +4,12 @@ import CommitListStyles from './CommitList.styles';
 import { useSelector } from 'react-redux';
 import CommitListItem from './CommitListItem';
 
-export default function CommitList(props) {
+/**
+ * Commit list component
+ *
+ */
+export default function CommitList() {
     const commits = useSelector(state => state.commits);
-
-    const commitClicked = commit => {
-        console.log('commitClicked', commit.commit.message);
-    };
 
     return (
         <View style={CommitListStyles.container}>
@@ -20,12 +20,7 @@ export default function CommitList(props) {
                     ListHeaderComponent={
                         <Text style={CommitListStyles.listHeader}>Commits</Text>
                     }
-                    renderItem={({ item }) => (
-                        <CommitListItem
-                            item={item}
-                            commitClicked={() => commitClicked(item)}
-                        />
-                    )}
+                    renderItem={({ item }) => <CommitListItem item={item} />}
                 />
             )}
         </View>

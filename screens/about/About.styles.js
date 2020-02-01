@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
         alignSelf: 'stretch',
         textAlign: 'center',
     },
-    textBody: {
+    textDescription: {
         padding: 10,
     },
     textLink: {

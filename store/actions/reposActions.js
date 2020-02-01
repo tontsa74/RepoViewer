@@ -1,5 +1,9 @@
 import { REQUEST_REPOS, REPOS_FULFILLED, REPOS_REJECTED } from '../types';
 
+/**
+ * Define your action create that set your loading state to true.
+ *
+ */
 export const requestRepos = () => {
     return {
         type: REQUEST_REPOS,
@@ -7,6 +11,11 @@ export const requestRepos = () => {
     };
 };
 
+/**
+ * Define a action creator to return the data when the promise is resolved and set loading state to false
+ *
+ * @param {*} data response data
+ */
 export const reposFulfilled = data => {
     return {
         type: REPOS_FULFILLED,
@@ -15,6 +24,11 @@ export const reposFulfilled = data => {
     };
 };
 
+/**
+ * Define a action creator that sets an error message and set loading state to false
+ *
+ * @param {*} error error message
+ */
 export const reposRejected = error => {
     return {
         type: REPOS_REJECTED,
@@ -23,10 +37,14 @@ export const reposRejected = error => {
     };
 };
 
+/**
+ * Fetch and dispatch GitHub repositories
+ *
+ * @param {String} username GitHub username
+ */
 export const fetchRepos = username => {
     return async dispatch => {
         try {
-            // dispatch fetch loading status
             dispatch(requestRepos());
             const url = `https://api.github.com/users/${username}/repos?sort=updated`;
             const reposPromise = await fetch(url);

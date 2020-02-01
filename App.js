@@ -4,6 +4,12 @@ import { Provider } from 'react-redux';
 import { store, persistor } from './store';
 import { PersistGate } from 'redux-persist/integration/react';
 
+/**
+ * RepoViewer App
+ *
+ * Contains react-redux store including redux persistor and react-navigation systems
+ *
+ */
 export default function App() {
     return (
         <Provider store={store}>

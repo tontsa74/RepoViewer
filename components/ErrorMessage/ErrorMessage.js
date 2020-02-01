@@ -7,6 +7,11 @@ import { reposRejected } from '../../store/actions/reposActions';
 import { branchesRejected } from '../../store/actions/branchesActions';
 import { commitsRejected } from '../../store/actions/commitsActions';
 
+/**
+ * Error message component
+ *
+ * Message is cleared on click
+ */
 export default function ErrorMessage() {
     const repos = useSelector(state => state.repos);
     const branches = useSelector(state => state.branches);
@@ -14,18 +19,18 @@ export default function ErrorMessage() {
 
     const dispatch = useDispatch();
 
+    /** clear repos error message */
     const reposErrorClicked = () => {
-        console.log('errorClicked: ', repos.errorMessage);
         dispatch(reposRejected(''));
     };
 
+    /** clear branches error message */
     const branchesErrorClicked = () => {
-        console.log('errorClicked: ', branches.errorMessage);
         dispatch(branchesRejected(''));
     };
 
+    /** clear commits error message */
     const commitsErrorClicked = () => {
-        console.log('errorClicked: ', commits.errorMessage);
         dispatch(commitsRejected(''));
     };
 

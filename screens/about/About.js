@@ -3,9 +3,15 @@ import { Text, View, Linking, TouchableOpacity, Image } from 'react-native';
 import styles from '../../styles';
 import aboutStyles from './About.styles';
 
+/**
+ * About screen component
+ *
+ * Contains app name, logo, description and github link
+ *
+ */
 export default function About() {
     const title = 'RepoViewer';
-    const body = `
+    const description = `
 RepoViewer is application to search GitHub repositories, branches and commits by username.
 
 Project is created with:
@@ -20,7 +26,7 @@ Project is created with:
         <View style={[styles.container, aboutStyles.container]}>
             <Image style={aboutStyles.logo} source={require(logo)} />
             <Text style={aboutStyles.textTitle}>{title}</Text>
-            <Text style={aboutStyles.textBody}>{body}</Text>
+            <Text style={aboutStyles.textDescription}>{description}</Text>
             <TouchableOpacity onPress={() => Linking.openURL(url)}>
                 <Text style={aboutStyles.textLink}>{url}</Text>
             </TouchableOpacity>

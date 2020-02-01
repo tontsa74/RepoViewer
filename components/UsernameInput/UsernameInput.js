@@ -14,6 +14,13 @@ import { fetchRepos } from '../../store/actions/reposActions';
 
 const IconComponent = Ionicons;
 
+/**
+ * Username input component
+ *
+ * Contains text input, button and loading indicator
+ * Dispatches user repositories to redux store
+ *
+ */
 export default function UsernameInput() {
     const [username, setUsername] = useState('');
 
@@ -21,6 +28,10 @@ export default function UsernameInput() {
 
     const dispatch = useDispatch();
 
+    /**
+     * Dispatch username and user repositories
+     *
+     */
     const searchClicked = () => {
         console.log('clicked', username);
         if (username) {

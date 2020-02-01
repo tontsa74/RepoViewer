@@ -9,8 +9,22 @@ import { Ionicons } from '@expo/vector-icons';
 import ErrorMessage from './components/ErrorMessage/ErrorMessage';
 import { View } from 'react-native';
 
+/**
+ * Navigation component
+ *
+ * Bottom tab bar component contains two separate stack navigators
+ * Screens: Home, Commit, About and error message components.
+ *
+ *              Commit
+ *                |
+ *              Home    About
+ *                |       |
+ *              error-message
+ * TabBar-->    Search  About
+ */
 const TabBarComponent = props => <BottomTabBar {...props} />;
 
+/** General stack navigator config */
 const stackNavigatorConfig = {
     headerStyle: {
         backgroundColor: '#eee',
@@ -21,7 +35,8 @@ const stackNavigatorConfig = {
     },
 };
 
-const SearchStackNavigator = createStackNavigator(
+/** Home stack navigator */
+const HomeStackNavigator = createStackNavigator(
     {
         Home: HomeScreen,
         Commit: CommitScreen,
@@ -32,6 +47,7 @@ const SearchStackNavigator = createStackNavigator(
     }
 );
 
+/** About stack navigator */
 const AboutStackNavigator = createStackNavigator(
     {
         About: AboutScreen,
@@ -42,9 +58,10 @@ const AboutStackNavigator = createStackNavigator(
     }
 );
 
+/** Bottom tab navigator */
 const TabNavigator = createBottomTabNavigator(
     {
-        Search: SearchStackNavigator,
+        Search: HomeStackNavigator,
         About: AboutStackNavigator,
     },
     {

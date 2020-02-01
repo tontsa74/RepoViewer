@@ -6,9 +6,15 @@ import BranchPicker from '../../components/branchPicker/BranchPicker';
 import CommitList from '../../components/CommitList/CommitList';
 
 Commit.navigationOptions = ({ navigation }) => {
-    return {title: navigation.getParam('name'),};
+    return { title: navigation.getParam('name') };
 };
 
+/**
+ * Commit screen component
+ *
+ * Contains branch picker and commit list
+ *
+ */
 export default function Commit() {
     return (
         <View style={[styles.container, commitStyles.container]}>
