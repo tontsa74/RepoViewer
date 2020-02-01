@@ -1,5 +1,9 @@
 # RepoViewer
 
+GitHub repository viewer.
+
+![Gif of the App](/doc/RepoViewer.gif)
+
 ## Table of contents
 - [RepoViewer](#repoviewer)
   - [Table of contents](#table-of-contents)
