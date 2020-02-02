@@ -15,9 +15,6 @@ const styles = StyleSheet.create({
     searchButton: {
         marginRight: 10,
     },
-    loading: {
-        paddingHorizontal: 5,
-    }
 });
 
 export default styles;

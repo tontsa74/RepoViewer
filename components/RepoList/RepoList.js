@@ -4,9 +4,13 @@ import RepoListStyles from './RepoList.styles';
 import { useSelector, useDispatch } from 'react-redux';
 import RepoListItem from './RepoListItem';
 import { fetchBranches } from '../../store/actions/branchesActions';
-import { searchBranch, searchCommitsUrl } from '../../store/actions/searchActions';
+import {
+    searchBranch,
+    searchCommitsUrl,
+} from '../../store/actions/searchActions';
 import { fetchCommits } from '../../store/actions/commitsActions';
 import { parseCommitsurl } from '../../utils/parseCommitsUrl';
+import LoadingIndicator from '../Loading/LoadingIndicator';
 
 /**
  * Repository(repo) list component
@@ -41,7 +45,8 @@ export default function RepoList(props) {
 
     return (
         <View style={RepoListStyles.container}>
-            {repos.repos.length > 0 && (
+            {repos.loading && <LoadingIndicator />}
+            {!repos.loading && repos.repos.length > 0 && (
                 <FlatList
                     data={repos.repos}
                     keyExtractor={repo => repo.full_name}
