@@ -2,6 +2,7 @@ import React from 'react';
 import { Text, View, Linking, TouchableOpacity, Image } from 'react-native';
 import styles from '../../styles';
 import aboutStyles from './About.styles';
+import { ScrollView } from 'react-native-gesture-handler';
 
 /**
  * About screen component
@@ -23,13 +24,15 @@ Project is created with:
     const logo = '../../assets/GitHub-Mark/PNG/GitHub-Mark-120px-plus.png';
 
     return (
-        <View style={[styles.container, aboutStyles.container]}>
-            <Image style={aboutStyles.logo} source={require(logo)} />
-            <Text style={aboutStyles.textTitle}>{title}</Text>
-            <Text style={aboutStyles.textDescription}>{description}</Text>
-            <TouchableOpacity onPress={() => Linking.openURL(url)}>
-                <Text style={aboutStyles.textLink}>{url}</Text>
-            </TouchableOpacity>
-        </View>
+        <ScrollView>
+            <View style={[styles.container, aboutStyles.container]}>
+                <Image style={aboutStyles.logo} source={require(logo)} />
+                <Text style={aboutStyles.textTitle}>{title}</Text>
+                <Text style={aboutStyles.textDescription}>{description}</Text>
+                <TouchableOpacity onPress={() => Linking.openURL(url)}>
+                    <Text style={aboutStyles.textLink}>{url}</Text>
+                </TouchableOpacity>
+            </View>
+        </ScrollView>
     );
 }

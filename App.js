@@ -19,7 +19,7 @@ export default function App() {
         if (welcome) {
             setTimeout(() => {
                 setWelcome(false);
-            }, 1500);
+            }, 1000);
         }
     });
 
