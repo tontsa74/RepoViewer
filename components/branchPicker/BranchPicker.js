@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Picker } from 'react-native';
 import BranchPickerStyles from './BranchPicker.styles';
-import { useSelector, useDispatch } from './node_modules/react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { searchBranch } from '../../store/actions/searchActions';
 import { fetchCommits } from '../../store/actions/commitsActions';
 import { parseCommitsurl } from '../../utils/parseCommitsUrl';
